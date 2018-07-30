@@ -5,6 +5,8 @@ var session = require('express-session');
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/webdev-summer-2018');
 URI = "mongodb://heroku_rqpg3b19:pktf9lbo3bkae7v8c9e9u0p0n0@ds259711.mlab.com:59711/heroku_rqpg3b19";
+heroku_url = "https://student-enrollment-angular-app.herokuapp.com";
+local_url = "http://localhost:4200";
 
 app.use(session({
  resave: false,
