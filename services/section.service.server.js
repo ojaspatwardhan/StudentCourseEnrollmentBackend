@@ -13,6 +13,7 @@ module.exports = function(app) {
   app.post("/api/student/:sectionId/section", enrollStudentInSection);
   app.get("/api/student/section", findSectionsForStudent);
   app.delete("/api/student/:sectionId/section", unenrollStudentInSection);
+  app.get("/api/student/:sectionId/findEnrollment", findEnrollmentForSection);
 
   function createSection(req, res) {
     var section = req.body;
@@ -108,6 +109,13 @@ module.exports = function(app) {
           })
         })
       }).then(() => res.send("unenrolled"))
+    });
+  }
+
+  function findEnrollmentForSection(req, res) {
+    var sectionId = req.params.sectionId;
+    enrollmentModel.findEnrollmentForSection(sectionId).then(function(enrollment) {
+      res.send(enrollment);
     });
   }
 }
