@@ -17,7 +17,7 @@ function findUserById(userId) {
 
 function updateUser(user) {
   userModel.findByIdAndUpdate(user._id, {
-    $set: {firstName: user.firstName, lastName: user.lastName, email: user.email, phone: user.phone, address: user.address}
+    $set: {firstName: user.firstName, lastName: user.lastName, email: user.email, phone: user.phone, address: user.address, appointmentId: user.appointmentId}
   }, {
     new: true
   }, function(err) {
@@ -31,7 +31,18 @@ function updateUser(user) {
 }
 
 function findUserByCredentials(credentials) {
-  return userModel.findOne(credentials, {username: 1});
+  return userModel.findOne(credentials, {username: 1, role: 1});
+}
+
+function deleteUser(id) {
+  return userModel.findByIdAndRemove(id, function(err) {
+    if(err) {
+      throw err;
+    }
+    else {
+      console.log("Deleted" + " " + id);
+    }
+  });
 }
 
 function addSectionForStudent(sectionId, studentId) {
@@ -64,6 +75,7 @@ var api = {
   findUserById,
   updateUser: updateUser,
   findUserByCredentials: findUserByCredentials,
+  deleteUser: deleteUser,
   addSectionForStudent: addSectionForStudent,
   deleteSectionForStudent: deleteSectionForStudent
 };

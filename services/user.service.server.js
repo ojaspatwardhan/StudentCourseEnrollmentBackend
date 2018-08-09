@@ -8,6 +8,7 @@ module.exports = function(app) {
   app.put("/api/profile", updateUser);
   app.post("/api/logout", logout);
   app.post("/api/login", login);
+  app.delete("/api/delete/:id", deleteUser);
 
   function createUser(req, res) {
     var user = req.body;
@@ -15,6 +16,13 @@ module.exports = function(app) {
     .then(function(user) {
       req.session['currentUser'] = user;
       res.send(user);
+    });
+  }
+
+  function deleteUser(req, res) {
+    var id = req.params["id"];
+    userModel.deleteUser(id).then(function(user) {
+      res.json(user);
     });
   }
 
