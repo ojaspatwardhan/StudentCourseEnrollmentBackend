@@ -7,7 +7,7 @@ mongoose.connect('mongodb://heroku_v49vkx8g:ug4769e9j395u1g5vbf42qifr3@ds119640.
 
 //Configuration Varaibles for mongodb
 URI = "mongodb://heroku_rqpg3b19:pktf9lbo3bkae7v8c9e9u0p0n0@ds259711.mlab.com:59711/heroku_rqpg3b19";
-ProjectURI = "mongodb://heroku_v49vkx8g:ug4769e9j395u1g5vbf42qifr3@ds119640.mlab.com:19640/heroku_v49vkx8g";
+ProjectURI = "mongodb://heroku_2rgcx7px:k1p3nnbe8kah44e9vaeam0ij7d@ds153845.mlab.com:53845/heroku_2rgcx7px";
 
 //Heroku frontend URL
 heroku_url = "https://student-enrollment-angular-app.herokuapp.com";
