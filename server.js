@@ -3,9 +3,21 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/webdev-project');
+mongoose.connect('mongodb://heroku_v49vkx8g:ug4769e9j395u1g5vbf42qifr3@ds119640.mlab.com:19640/heroku_v49vkx8g');
+
+//Configuration Varaibles for mongodb
 URI = "mongodb://heroku_rqpg3b19:pktf9lbo3bkae7v8c9e9u0p0n0@ds259711.mlab.com:59711/heroku_rqpg3b19";
+ProjectURI = "mongodb://heroku_v49vkx8g:ug4769e9j395u1g5vbf42qifr3@ds119640.mlab.com:19640/heroku_v49vkx8g";
+
+//Heroku frontend URL
 heroku_url = "https://student-enrollment-angular-app.herokuapp.com";
+
+//Project Backend URL Heroku
+projectHerokuUrl = "https://lotus-lab-backend.herokuapp.com/";
+
+//Project Frontend URL Heroku
+projectHerokuUrl = "https://lotus-lab.herokuapp.com/";
+
 local_url = "http://localhost:4200";
 local_mongo = "mongodb://localhost/webdev-summer-2018";
 
@@ -20,7 +32,7 @@ app.use(bodyParser.json());
 
 //CORS
 app.use(function(req, res, next) {
-res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+res.header("Access-Control-Allow-Origin", "https://lotus-lab.herokuapp.com/");
 res.header("Access-Control-Allow-Headers",
 "Origin, X-Requested-With, Content-Type, Accept");
 res.header("Access-Control-Allow-Methods",
