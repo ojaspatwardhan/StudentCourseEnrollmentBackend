@@ -5,6 +5,7 @@ module.exports = function(app) {
   app.post("/api/user", createUser);
   app.get("/api/profile", profile);
   app.get("/api/user/:userId", findUserById);
+  app.get("/api/forgotPassword/:emailId", findUserByEmail);
   app.put("/api/profile", updateUser);
   app.post("/api/logout", logout);
   app.post("/api/login", login);
@@ -48,6 +49,13 @@ module.exports = function(app) {
     var id = req.params['userId'];
     userModel.findUserById(id)
     .then(function(user) {
+      res.json(user);
+    });
+  }
+
+  function findUserByEmail(req, res) {
+    var emailId = req.params["emailId"];
+    userModel.findUserByEmail(emailId).then(function(user) {
       res.json(user);
     });
   }

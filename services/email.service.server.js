@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.get("/api/email/:emailId/:password", function(req, res) {
     var emailId = req.params["emailId"];
     var password = req.params["password"];
-    res.send(emailId + " " + password);
+    console.log(emailId + " " + password);
 
     let transporter = nodemailer.createTransport({
       service: 'gmail',

@@ -34,6 +34,10 @@ function findUserByCredentials(credentials) {
   return userModel.findOne(credentials, {username: 1, role: 1});
 }
 
+function findUserByEmail(emailId) {
+  return userModel.find({email: emailId}, {email: 1, password: 1});
+}
+
 function deleteUser(id) {
   return userModel.findByIdAndRemove(id, function(err) {
     if(err) {
@@ -72,7 +76,8 @@ function deleteSectionForStudent(sectionId, studentId) {
 var api = {
   createUser: createUser,
   findAllUsers: findAllUsers,
-  findUserById,
+  findUserById: findUserById,
+  findUserByEmail: findUserByEmail,
   updateUser: updateUser,
   findUserByCredentials: findUserByCredentials,
   deleteUser: deleteUser,
