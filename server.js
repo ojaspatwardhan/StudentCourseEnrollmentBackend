@@ -16,7 +16,7 @@ heroku_url = "https://student-enrollment-angular-app.herokuapp.com";
 projectHerokuUrl = "https://lotus-lab-backend.herokuapp.com/";
 
 //Project Frontend URL Heroku
-projectHerokuUrl = "https://lotus-lab.herokuapp.com/";
+projectHerokuUrl = "https://lotus-lab.herokuapp.com";
 
 local_url = "http://localhost:4200";
 local_mongo = "mongodb://localhost/webdev-summer-2018";
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 
 //CORS
 app.use(function(req, res, next) {
-res.header("Access-Control-Allow-Origin", "https://lotus-lab.herokuapp.com");
+res.header("Access-Control-Allow-Origin", "http://localhost:4200");
 res.header("Access-Control-Allow-Headers",
 "Origin, X-Requested-With, Content-Type, Accept");
 res.header("Access-Control-Allow-Methods",
@@ -76,6 +76,8 @@ var userService = require("./services/user.service.server");
 userService(app);
 var sectionService = require("./services/section.service.server");
 sectionService(app);
+var emailService = require("./services/email.service.server");
+emailService(app);
 console.log("Inside server.js");
 
 
