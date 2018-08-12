@@ -3,6 +3,7 @@ module.exports = function(app) {
 
   app.get("/api/user", findAllUsers);
   app.post("/api/user", createUser);
+  app.post("/api/user/admin", createUserByAdmin);
   app.get("/api/profile", profile);
   app.get("/api/user/:userId", findUserById);
   app.get("/api/forgotPassword/:emailId", findUserByEmail);
@@ -17,6 +18,16 @@ module.exports = function(app) {
     .then(function(user) {
       req.session['currentUser'] = user;
       res.send(user);
+    });
+  }
+
+  function createUserByAdmin(req, res) {
+    var user = req.body;
+    console.log(user);
+    userModel.createUser(user)
+    .then(function(user) {
+      console.log("User created by admin");
+      res.json(user);
     });
   }
 
