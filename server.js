@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_2rgcx7px:k1p3nnbe8kah44e9vaeam0ij7d@ds153845.mlab.com:53845/heroku_2rgcx7px');
+mongoose.connect('mongodb://localhost/webdev-project');
 
 //Configuration Varaibles for mongodb
 //URI "mongodb://heroku_rqpg3b19:pktf9lbo3bkae7v8c9e9u0p0n0@ds259711.mlab.com:59711/heroku_rqpg3b19";
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 
 //CORS
 app.use(function(req, res, next) {
-res.header("Access-Control-Allow-Origin", "https://lotus-lab.herokuapp.com");
+res.header("Access-Control-Allow-Origin", "http://localhost:4200");
 res.header("Access-Control-Allow-Headers",
 "Origin, X-Requested-With, Content-Type, Accept");
 res.header("Access-Control-Allow-Methods",

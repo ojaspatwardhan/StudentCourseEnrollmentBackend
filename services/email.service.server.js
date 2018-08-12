@@ -56,6 +56,7 @@ module.exports = function(app) {
             return console.log(error);
         }
         console.log('Message sent: %s', info.messageId);
+        res.json("Successful");
     });
 
   });
