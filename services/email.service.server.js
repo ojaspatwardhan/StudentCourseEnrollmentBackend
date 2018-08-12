@@ -30,4 +30,33 @@ module.exports = function(app) {
     });
 
   });
+
+  app.get("/api/queryEmail/:emailId/:queryText", function(req, res) {
+    var emailId = req.params["emailId"];
+    var query = req.params["queryText"];
+
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: "webdev.summer.project@gmail.com",
+        pass: "10Ronaldinho"
+      }
+    });
+
+    let mailOptions = {
+        from: emailId, // sender address
+        to: "webdev.summer.project@gmail.com", // list of receivers
+        subject: 'Query', // Subject line
+        text: query // plain text body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+    });
+
+  });
 }
