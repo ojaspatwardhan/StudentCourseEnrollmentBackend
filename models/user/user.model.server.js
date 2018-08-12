@@ -17,7 +17,7 @@ function findUserById(userId) {
 
 function updateUser(user) {
   userModel.findByIdAndUpdate(user._id, {
-    $set: {firstName: user.firstName, lastName: user.lastName, email: user.email, phone: user.phone, address: user.address, appointmentId: user.appointmentId}
+    $set: {username: user.username, firstName: user.firstName, lastName: user.lastName, email: user.email, phone: user.phone, address: user.address, appointmentId: user.appointmentId}
   }, {
     new: true
   }, function(err) {
