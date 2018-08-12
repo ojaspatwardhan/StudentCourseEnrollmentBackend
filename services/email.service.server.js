@@ -47,7 +47,8 @@ module.exports = function(app) {
         from: emailId, // sender address
         to: "webdev.summer.project@gmail.com", // list of receivers
         subject: 'Query', // Subject line
-        text: query + " " + "You have received this query from" + " " + emailId // plain text body
+        text: query + " " + "You have received this query from" + " " + emailId, // plain text body
+        html: "<b>HTML text</b>"
     };
 
     // send mail with defined transport object
